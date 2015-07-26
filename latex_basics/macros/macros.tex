@@ -1,0 +1,43 @@
+\documentclass{article}
+
+% Defining a new command.
+% \newcommand{\name}[argnum] {command}
+
+% Defining a new command without arguments.
+\newcommand{\wysiwyg} {What You See Is What You Get}
+
+% Defining a new command with one argument.
+\newcommand{\hello}[1] {Hello #1, how are you?}
+
+% Defining a new environment.
+% \newenvironment{name}[argnum] {before} {after}
+
+% Defining a new environment without arguments.
+\newenvironment{fat} {\textbf\bgroup} {\egroup}
+
+% Useful packages:
+\usepackage{xkeyval}
+
+\usepackage{calc}
+\usepackage{fp}
+
+\usepackage{ifthen}
+
+\usepackage{tikz}
+
+\usepackage{xstring}
+
+\usepackage{}
+
+\begin{document}
+
+\wysiwyg
+
+\hello{Jeremiah}
+
+\begin{fat}
+This is my own fat environment.
+\end{fat}
+
+\end{document}
+

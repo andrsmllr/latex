@@ -1,0 +1,182 @@
+%
+% paragraph_formatting
+% see: http://en.wikibooks.org/wiki/LaTeX/Paragraph_Formatting
+%
+
+\documentclass[11pt,a4paper,titlepage,onecolumn]{article}
+
+%
+% The parskip package handles spacing around paragraphs in case of 0 indentation.
+%
+\usepackage{parskip}
+
+%
+% The alltt package supplies an environment similar to verbatim,
+% but commands can be used within.
+%
+\usepackage{alltt}
+\renewcommand{\ttdefault}{txtt} % Add this line to use \textbf{} within alltt env.
+
+%
+% The hyperref package helps handling URLs.
+%
+\usepackage{hyperref}
+\hypersetup{pdfborder={0 0 0}} % This removes the (colored) box/frame around URLs.
+%\urlstyle{same} % This will display URLs in the normal font used in the document.
+
+%
+% The moreverb package provides line numbers for a verbatim environment.
+%
+\usepackage{moreverb}
+
+\begin{document}
+
+%
+% Left justify text.
+%
+\begin{flushleft}
+    This text is left justified.
+\end{flushleft}
+
+% The command form is only for use in special environments like tables.
+% {\raggedright{}More text on the left.}
+
+%
+% Right justify text.
+%
+\begin{flushright}
+    This text is right justified.
+\end{flushright}
+
+% The command form is only for use in special environments like tables.
+%{\raggedleft{}More text on the right.}
+
+%
+% Center text.
+%
+\begin{center}
+    This text is center justified.
+\end{center}
+
+% The command form is only for use in special environments like tables.
+%{\centering{}More text in the center.}
+
+%
+% Setting the size of a paragraph indent.
+%
+\setlength{\parindent}{1cm}
+
+%
+% Setting the size of vertical whitespace around a paragraph.
+%
+\setlength{\parskip}{1cm plus4mm minus3mm}
+
+%
+% Manual control of paragraph indentation.
+%
+\indent
+\noindent
+
+%
+% Add additional indent to lines of a paragraph.
+%
+\hangindent=0.5cm % Additional indent to the left.
+Lipsum
+\leftskip=0.1cm
+Lapsum
+\hangafter=0.6cm % Additional indent to the right.
+Lopsum
+\rightskip=0.2cm
+Lupsum
+\parfillskip=0.7cm
+
+%
+% Paragraph line breaking.
+%
+\paragraph{Some paragraph} ~\\ % The ~ is to prevent "There's no line here to end" whining.
+
+%
+% Various ways to do manual line breaking. A ~ is added to avoid some TeX whining.
+%
+~\newline % Break the line.
+~\\ % Same as \newline but shorter.
+~\\* % Break the line but prohibit a page break thereafter.
+~\linebreak[3] % Break line with given priority, 0=lowest...4=highest.
+~\break % Break the line without filling it. TeX command.
+~\hfill\break % Same as \break but fills the line before breaking it. Result as \newline.
+~\par{New paragraph name} % Start a new paragraph, only within a paragraph(?). TeX command.
+
+%
+% verbatim environment.
+%
+\begin{verbatim}
+This text will be output
+as it is written, including
+a l l    s p a c e s.
+Commands are not recognized while in the verbatim environment.
+Thus \newline is printed as typed.
+The only command that is recognized is the one to end the verbatim environment.
+\end{verbatim}
+
+\verb|There is also a command version of the verbatim environment.|
+
+%
+% alltt environment.
+%
+\begin{alltt}
+This text will also be output as it is written,
+but opposed to the verbatim environment commands like emph
+can be be used, \emph{like this}.
+\textbf{Bolt text.}
+\textit{Italic text.}
+Formulas are also possible \(y = \sum \frac{1}{x}\).
+\normalfont{}Returned to normal text while still in the alltt environment.
+\end{alltt}
+
+%
+% hyperref.
+%
+With the hyperref package URLs like \url{http://en.wikibooks.org/wiki/LaTeX/Paragraph_Formatting} are displayed correctly.
+
+%
+% moreverb. Somehow broken? Let's show how the comment environment works then.
+%
+\begin{comment}
+\begin{listing}
+-- Buffer input signals.
+process (clk) is
+begin
+	if rising_edge(clk) then
+		data_i_d1 <= data_i;
+	end if;
+end process;
+\end{listing}
+\end{comment}
+
+%
+% Quoting.
+%
+\begin{quote}
+This is a short quote with the quote environment.
+\end{quote}
+
+\begin{quotation}
+This is a quote which is usually longer than just one single line of text,
+in which case the quotation environment should be used.
+\end{quotation}
+
+\begin{verse}
+The verse environment\\
+is used\\
+for poetry and other\\
+things.\\
+~\\
+I don't know\\
+at all\\
+if this will be\\
+useful\\
+to me.
+\end{verse}
+
+\end{document}
+

@@ -1,0 +1,28 @@
+%
+% document_stucture
+% see: http://en.wikibooks.org/wiki/LaTeX/Document_Structure
+%
+
+% There exist a number of predefined document classes, others can be installed as well.
+%\documentclass[]{article|IEEEtran|proc|minimal|report|book|slides|memoir|letter|beamer}
+\documentclass[11pt,a4paper,titlepage,twocolumn]{article}
+
+% The preamble is located between the document class declaration and the begin of the document.
+
+\usepackage{lipsum}
+
+
+\begin{document}
+
+% Frontmatter.
+\title{Title of this Document}
+\author{Andreas Muller \\ \latex Document Structure \\ andreas.mueller2207@web.de}
+\date{\today}
+\maketitle
+
+\input{hello_tex_world} % input will continue the current text seamlessly.
+\include{hello_tex_world} % inclde will start a new page.
+
+\lipsum
+
+\end{document}
