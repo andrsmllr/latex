@@ -1,0 +1,37 @@
+%
+% Template for a simple article.
+%
+
+\documentclass[11pt,a4paper,titlepage,onecolumn]{article}
+
+% Preamble.
+
+% Package to handle insertion of graphics.
+\usepackage{graphicx}
+\graphicspath{img/}
+
+% Package to overcome problems with eps graphics in pdf.
+\usepackage[outdir=./img/]{epstopdf}
+
+% Front matter.
+\title{Article Template}
+\author{Andreas Muller}
+\date{\today}
+
+%
+% Begin document.
+%
+
+\begin{document}
+
+\include{tex/titlepage}
+%\maketitle
+
+\section{Introduction}
+
+\section{Main}
+
+\section{Conclusion}
+
+\end{document}
+
